@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "dev": "nodemon server.js && next dev -p 5001"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "proxy": "https://broncobitesapplication-b3dba200e223.herokuapp.com/",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.0.1",
+    "multer": "^1.4.5-lts.1",
+    "react-router-dom": "^6.20.0",
+    "validator": "^13.11.0",
+    "web-vitals": "^3.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
