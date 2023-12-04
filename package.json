@@ -8,7 +8,7 @@
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm install && npm run build:frontend",
-    "build:frontend": "cd bronco-bites && npm install && npm run build",
+    "build:frontend": "cd ../bronco-bites && npm install && npm run build",
     "heroku-postbuild": "npm run build"
   },
   "keywords": [],
