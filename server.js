@@ -27,16 +27,17 @@ connection.once('open', () => {
   console.log('MongoDB connection established.')
 });
 
-app.use('/', restaurantRouter);
-app.use('/pricechange', priceChangeRouter);
-app.use('/account', account);
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../bronco-bites/build')));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../bronco-bites/build', 'index.html'));
   });
 }
+
+app.use('/', restaurantRouter);
+app.use('/pricechange', priceChangeRouter);
+app.use('/account', account);
+
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);

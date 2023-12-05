@@ -29,7 +29,7 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-// Login Route
+// Login    
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;
     console.log("Login attempt for:", email);

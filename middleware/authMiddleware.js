@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 
 const authMiddleware = async (req, res, next) => {
-    // Check for the token in the request header
     const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
 
     if (!token) {
@@ -9,10 +8,9 @@ const authMiddleware = async (req, res, next) => {
     }
 
     try {
-        // Verify token
+
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-        // Add user from payload
         req.user = decoded.id;
 
         next();
