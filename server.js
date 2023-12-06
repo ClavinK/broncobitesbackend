@@ -8,6 +8,10 @@ const account = require('./routes/accountRoute.js');
 
 dotenv.config();
 
+const corsOptions = {
+  origin: ""
+}
+
 const app = express();
 const port = process.env.PORT || 5001;
 
@@ -17,7 +21,8 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000
 })
   .then(() => console.log('MongoDB connection established.'))
   .catch(err => console.error('MongoDB connection error:', err));
@@ -26,13 +31,6 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDB connection established.')
 });
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../bronco-bites/build')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../bronco-bites/build', 'index.html'));
-  });
-}
 
 app.use('/', restaurantRouter);
 app.use('/pricechange', priceChangeRouter);
